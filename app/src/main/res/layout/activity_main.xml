@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    android:background="@drawable/backgraoundmain"
+    tools:context=".MainActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backgroundgradient"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+            <Button
+                android:id="@+id/shufle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/shuffle"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:drawableTop="@drawable/baseline_shuffle_24"
+                android:text="@string/shufle"
+                android:textColor="@color/black"
+                />
+            <Button
+                android:id="@+id/favori"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/favori"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:drawableTop="@drawable/baseline_favorite_24"
+                android:text="@string/favori"
+                android:textColor="@color/black"/>
+            <Button
+                android:id="@+id/playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/PlayList2"
+                android:drawableTop="@drawable/baseline_library_music_24"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:text="@string/PlayList2"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/musiclistsize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_songs_432"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/musicRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarThumbVertical='@drawable/baseline_check_box_outline_blank_24'
+            android:scrollbars="vertical" />
+
+
+    </LinearLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nowPlaying"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:name="com.onurgunduz.musicplayer.NowPlaying" />
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/navheader"
+        app:menu="@menu/nav_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
